@@ -6,7 +6,7 @@
 " Default GUI Colours
 let s:foreground = "c5c8c6"
 let s:background = "1d1f21"
-let s:selection = "999999"
+let s:selection = "373b41"
 let s:line = "282a2e"
 let s:linenr = "5e605f"
 let s:comment = "969896"
@@ -24,7 +24,7 @@ if !has("gui_running")
 	let s:background = "242424"
 	let s:window = "5e5e5e"
 	let s:line = "3a3a3a"
-	let s:selection = "999999"
+	let s:selection = "585858"
 end
 
 hi clear
@@ -251,7 +251,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("StatusLine", s:window, s:yellow, "reverse")
 	call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
 	call <SID>X("VertSplit", s:window, s:window, "none")
-	call <SID>X("Visual", "", s:selection, "")
+	call <SID>X("Visual", s:foreground, s:selection, "")
 	call <SID>X("Directory", s:blue, "", "")
 	call <SID>X("ModeMsg", s:foreground, "", "")
 	call <SID>X("MoreMsg", s:foreground, "", "")
