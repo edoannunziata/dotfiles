@@ -17,9 +17,9 @@ set signcolumn=number
 set wildmenu
 set wildmode=list:longest
 
-color tomorrownight
-hi Normal guibg=NONE ctermbg=NONE
 set background=dark
+color komau
+hi Normal guibg=NONE ctermbg=NONE
 
 nnoremap <c-j> <c-w>j
 nnoremap <c-J> <c-w>J

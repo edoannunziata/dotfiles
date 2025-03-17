@@ -252,3 +252,5 @@ call s:h("mkdLink", { "fg": s:fg, "gui": s:bold, "cterm": s:bold })
 call s:h("markdownLinkDelimiter", { "fg": s:fg })
 call s:h("mkdURL", { "fg": s:norm_subtle, "gui": s:italic, "cterm": s:italic })
 
+hi Normal guibg=NONE ctermbg=NONE
+
