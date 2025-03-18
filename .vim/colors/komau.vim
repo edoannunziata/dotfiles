@@ -38,7 +38,7 @@ if &background == "dark"
   let s:bg_subtle       = s:lighter_black
   let s:bg_very_subtle  = s:subtle_black
   let s:norm            = s:lighter_gray
-  let s:norm_subtle     = s:medium_gray
+  let s:norm_subtle     = s:pink
   let s:cursorlinenr    = s:white
 else
   let s:fg              = s:black
@@ -46,7 +46,7 @@ else
   let s:bg_subtle       = s:light_gray
   let s:bg_very_subtle  = s:lightest_gray
   let s:norm            = s:light_black
-  let s:norm_subtle     = s:medium_gray
+  let s:norm_subtle     = s:red
   let s:cursorlinenr    = s:black
 endif
 
@@ -110,7 +110,7 @@ hi! link Exception        Statement
 
 call s:h("Operator",      {"fg": s:norm, "cterm": s:bold, "gui": s:bold})
 
-call s:h("PreProc",       {"fg": s:norm_subtle})
+call s:h("PreProc",       {"fg": s:norm})
 hi! link Include          PreProc
 hi! link Define           PreProc
 hi! link Macro            PreProc
@@ -121,7 +121,7 @@ hi! link StorageClass     Type
 hi! link Structure        Type
 hi! link Typedef          Type
 
-call s:h("Special",       {"fg": s:norm_subtle, "gui": s:italic})
+call s:h("Special",       {"fg": s:norm, "gui": s:italic})
 hi! link SpecialChar      Special
 hi! link Tag              Special
 hi! link Delimiter        Special

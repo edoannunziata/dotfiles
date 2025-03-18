@@ -8,6 +8,7 @@ set shiftwidth=4
 filetype indent on
 
 set nohlsearch
+set cursorline
 
 set number
 let g:ale_sign_error = '!'
@@ -19,7 +20,6 @@ set wildmode=list:longest
 
 set background=dark
 color komau
-hi Normal guibg=NONE ctermbg=NONE
 
 nnoremap <c-j> <c-w>j
 nnoremap <c-J> <c-w>J
@@ -36,5 +36,4 @@ if version >= 703
     set undofile
     set undoreload=10000
 endif
-
 
