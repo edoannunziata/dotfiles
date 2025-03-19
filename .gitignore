@@ -4,3 +4,6 @@
 !.vim
 !.vim/colors
 !.vim/colors/*
+!.vim/after
+!.vim/after/syntax
+!.vim/after/syntax/*

@@ -18,7 +18,15 @@ set signcolumn=number
 set wildmenu
 set wildmode=list:longest
 
-set background=dark
+if system('uname') =~ 'Darwin'
+    if system('defaults read -g AppleInterfaceStyle') =~ 'Dark'
+        set background=dark
+    else
+        set background=light
+    endif
+else
+    set background=dark
+endif
 color komau
 
 nnoremap <c-j> <c-w>j
