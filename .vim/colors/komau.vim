@@ -20,7 +20,6 @@ let s:white           = {"gui": "#EEEEEE", "cterm": "255"}
 " Accent colors
 let s:yellow          = {"gui": "#FED442", "cterm": "221"}
 let s:pink            = {"gui": "#AF87FF", "cterm": "141"}
-let s:purple          = {"gui": "#AF5FFF", "cterm": "135"}
 let s:green           = {"gui": "#22863A", "cterm": "29" }
 let s:red             = {"gui": "#B31D28", "cterm": "124"}
 let s:blue            = {"gui": "#005CC5", "cterm": "26" }
@@ -33,7 +32,7 @@ if &background == "dark"
   let s:bg_subtle       = s:lighter_black
   let s:bg_very_subtle  = s:subtle_black
   let s:norm            = s:lighter_gray
-  let s:norm_subtle     = s:pink
+  let s:norm_subtle     = s:medium_gray
   let s:cursorlinenr    = s:white
 else
   let s:fg              = s:black
@@ -41,7 +40,7 @@ else
   let s:bg_subtle       = s:light_gray
   let s:bg_very_subtle  = s:lightest_gray
   let s:norm            = s:light_black
-  let s:norm_subtle     = s:purple
+  let s:norm_subtle     = s:medium_gray
   let s:cursorlinenr    = s:black
 endif
 
@@ -125,7 +124,7 @@ hi! link Debug            Special
 call s:h("Underlined",    {"fg": s:norm, "gui": "underline", "cterm": "underline"})
 call s:h("Ignore",        {"fg": s:bg})
 call s:h("Error",         {"fg": s:white, "bg": s:red, "cterm": s:bold})
-call s:h("Todo",          {"fg": s:blue, "gui": "underline", "cterm": "underline"})
+call s:h("Todo",          {"fg": s:pink, "gui": "underline", "cterm": "underline"})
 call s:h("SpecialKey",    {"fg": s:green})
 call s:h("NonText",       {"fg": s:medium_gray})
 call s:h("Directory",     {"fg": s:norm, "gui": s:bold, "cterm": s:bold})
@@ -166,7 +165,7 @@ else
 endif
 
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:bg_very_subtle})
-call s:h("PmenuSel",      {"fg": s:subtle_black, "bg": s:norm_subtle})
+call s:h("PmenuSel",      {"fg": s:subtle_black, "bg": s:pink})
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("TabLine",       {"fg": s:norm, "bg": s:bg_very_subtle})

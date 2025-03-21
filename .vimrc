@@ -11,7 +11,7 @@ set nohlsearch
 set cursorline
 
 set number
-let g:ale_sign_error = '!'
+let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '?'
 set signcolumn=number
 
