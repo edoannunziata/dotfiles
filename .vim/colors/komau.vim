@@ -6,23 +6,44 @@ endif
 
 let g:colors_name='komau'
 
-" Shades of gray
-let s:black           = {"gui": "#262626", "cterm": "235"}
-let s:subtle_black    = {"gui": "#303030", "cterm": "236"}
-let s:light_black     = {"gui": "#444444", "cterm": "238"}
-let s:lighter_black   = {"gui": "#585858", "cterm": "240"}
-let s:medium_gray     = {"gui": "#767676", "cterm": "243"}
-let s:light_gray      = {"gui": "#999999", "cterm": "246"}
-let s:lighter_gray    = {"gui": "#CCCCCC", "cterm": "252"}
-let s:lightest_gray   = {"gui": "#E5E5E5", "cterm": "254"}
-let s:white           = {"gui": "#EEEEEE", "cterm": "255"}
+if &t_Co >= 256
+    " Shades of gray
+    let s:black           = {"gui": "#262626", "cterm": "235"}
+    let s:subtle_black    = {"gui": "#303030", "cterm": "236"}
+    let s:light_black     = {"gui": "#444444", "cterm": "238"}
+    let s:lighter_black   = {"gui": "#585858", "cterm": "240"}
+    let s:medium_gray     = {"gui": "#767676", "cterm": "243"}
+    let s:light_gray      = {"gui": "#999999", "cterm": "246"}
+    let s:lighter_gray    = {"gui": "#CCCCCC", "cterm": "252"}
+    let s:lightest_gray   = {"gui": "#E5E5E5", "cterm": "254"}
+    let s:white           = {"gui": "#EEEEEE", "cterm": "255"}
 
-" Accent colors
-let s:yellow          = {"gui": "#FED442", "cterm": "221"}
-let s:pink            = {"gui": "#AF87FF", "cterm": "141"}
-let s:green           = {"gui": "#22863A", "cterm": "29" }
-let s:red             = {"gui": "#B31D28", "cterm": "124"}
-let s:blue            = {"gui": "#005CC5", "cterm": "26" }
+    " Accent colors
+    let s:yellow          = {"gui": "#FED442", "cterm": "221"}
+    let s:pink            = {"gui": "#AF87FF", "cterm": "141"}
+    let s:green           = {"gui": "#22863A", "cterm": "29" }
+    let s:red             = {"gui": "#B31D28", "cterm": "124"}
+    let s:blue            = {"gui": "#005CC5", "cterm": "26" }
+else
+    " Shades of gray
+    let s:black           = {"gui": "#262626", "cterm": "0"}
+    let s:subtle_black    = {"gui": "#303030", "cterm": "8"}
+    let s:light_black     = {"gui": "#444444", "cterm": "8"}
+    let s:lighter_black   = {"gui": "#585858", "cterm": "8"}
+    let s:medium_gray     = {"gui": "#767676", "cterm": "7"}
+    let s:light_gray      = {"gui": "#999999", "cterm": "7"}
+    let s:lighter_gray    = {"gui": "#CCCCCC", "cterm": "7"}
+    let s:lightest_gray   = {"gui": "#E5E5E5", "cterm": "15"}
+    let s:white           = {"gui": "#EEEEEE", "cterm": "15"}
+
+    " Accent colors
+    let s:yellow          = {"gui": "#FED442", "cterm": "11"}
+    let s:pink            = {"gui": "#AF87D7", "cterm": "13"}
+    let s:purple          = {"gui": "#5F00FF", "cterm": "5"}
+    let s:green           = {"gui": "#22863A", "cterm": "10"}
+    let s:red             = {"gui": "#B31D28", "cterm": "9"}
+    let s:blue            = {"gui": "#005CC5", "cterm": "12"}
+endif
 
 let s:background = &background
 
@@ -154,12 +175,12 @@ call s:h("SignColumn",    {"fg": s:green})
 
 if has("gui_running")
   call s:h("SpellBad",    {"gui": "underline", "sp": s:red})
-  call s:h("SpellCap",    {"gui": "underline", "sp": s:green})
+  call s:h("SpellCap",    {"gui": "underline", "sp": s:yellow})
   call s:h("SpellRare",   {"gui": "underline", "sp": s:yellow})
   call s:h("SpellLocal",  {"gui": "underline", "sp": s:green})
 else
   call s:h("SpellBad",    {"cterm": "underline", "fg": s:red})
-  call s:h("SpellCap",    {"cterm": "underline", "fg": s:green})
+  call s:h("SpellCap",    {"cterm": "underline", "fg": s:yellow})
   call s:h("SpellRare",   {"cterm": "underline", "fg": s:yellow})
   call s:h("SpellLocal",  {"cterm": "underline", "fg": s:green})
 endif
