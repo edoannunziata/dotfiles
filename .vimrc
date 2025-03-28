@@ -1,23 +1,46 @@
-syntax on
-
+" Basic editor functionality
+set number
 set tabstop=4
 set autoindent
 set expandtab
 set softtabstop=4
 set shiftwidth=4
 filetype indent on
-
-set nohlsearch
 set cursorline
 
-set number
+" Do not highlight search results
+set nohlsearch
+
+" ALE options
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '?'
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 set signcolumn=number
 
+let g:ale_pattern_options = {
+    \ '\.py$': {'ale_linters': ['mypy'], 'ale_fixers': ['black'], 'filetype': 'py'},
+    \ '\.h$': {'ale_linters': ['clangd', 'clangtidy'], 'ale_fixers': ['clang-format'], 'filetype': 'cpp'},
+    \ '\.cpp$': {'ale_linters': ['clangd', 'clangtidy'], 'ale_fixers': ['clang-format'], 'filetype': 'cpp'},
+\}
+
+" C++
+autocmd BufRead,BufNewFile *.h set filetype=cpp
+let g:ale_cpp_cc_options = '-std=c++17 -Wall -Wextra -Weffc++ -Wsign-conversion -I/home/edoardo/cuttle'
+let g:ale_c_build_dir_names = ['.', 'build', 'bin']
+let g:ale_cpp_build_dir_names = ['.', 'build', 'bin']
+let g:ale_c_parse_compile_commands = 1
+let g:ale_cpp_parse_compile_commands = 1
+let g:ale_cpp_clang_use_compile_commands_json = 1
+let g:ale_cpp_clangd_use_compile_commands_json = 1
+let g:ale_c_clangformat_options = '--style="{BasedOnStyle: WebKit, IndentWidth: 4}"'
+
+" Use tab completion in menus
 set wildmenu
 set wildmode=list:longest
 
+" Syntax coloring
+syntax on
 if system('uname') =~ 'Darwin'
     if system('defaults read -g AppleInterfaceStyle') =~ 'Dark'
         set background=dark

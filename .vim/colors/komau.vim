@@ -20,7 +20,7 @@ if &t_Co >= 256
 
     " Accent colors
     let s:yellow          = {"gui": "#FED442", "cterm": "221"}
-    let s:pink            = {"gui": "#AF87FF", "cterm": "141"}
+    let s:pink            = {"gui": "#D73A49", "cterm": "167"}
     let s:green           = {"gui": "#22863A", "cterm": "29" }
     let s:red             = {"gui": "#B31D28", "cterm": "124"}
     let s:blue            = {"gui": "#005CC5", "cterm": "26" }
@@ -39,11 +39,11 @@ else
     " Accent colors
     let s:yellow          = {"gui": "#FED442", "cterm": "11"}
     let s:pink            = {"gui": "#AF87D7", "cterm": "13"}
-    let s:purple          = {"gui": "#5F00FF", "cterm": "5"}
     let s:green           = {"gui": "#22863A", "cterm": "10"}
     let s:red             = {"gui": "#B31D28", "cterm": "9"}
     let s:blue            = {"gui": "#005CC5", "cterm": "12"}
 endif
+
 
 let s:background = &background
 
