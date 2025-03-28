@@ -7,6 +7,19 @@ set softtabstop=4
 set shiftwidth=4
 filetype indent on
 set cursorline
+set laststatus=1
+
+" GUI Options
+if has('gui_running') 
+    set guioptions -=m
+    set guioptions -=T
+    set guioptions -=r
+    set guioptions -=L
+    set guioptions -=b
+    set guioptions -=u
+    set guifont=Cascadia\ Code\ 13
+    set guicursor=i-n-v-c:block-Cursor
+endif
 
 " Do not highlight search results
 set nohlsearch
@@ -51,6 +64,9 @@ else
     set background=dark
 endif
 color komau
+if !has('gui_running')
+    hi Normal ctermbg=None
+endif
 
 nnoremap <c-j> <c-w>j
 nnoremap <c-J> <c-w>J

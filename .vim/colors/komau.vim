@@ -6,9 +6,9 @@ endif
 
 let g:colors_name='komau'
 
-if &t_Co >= 256
+if has('gui_running') || &t_Co >= 256
     " Shades of gray
-    let s:black           = {"gui": "#262626", "cterm": "235"}
+    let s:black           = {"gui": "#121212", "cterm": "233"}
     let s:subtle_black    = {"gui": "#303030", "cterm": "236"}
     let s:light_black     = {"gui": "#444444", "cterm": "238"}
     let s:lighter_black   = {"gui": "#585858", "cterm": "240"}
@@ -26,7 +26,7 @@ if &t_Co >= 256
     let s:blue            = {"gui": "#005CC5", "cterm": "26" }
 else
     " Shades of gray
-    let s:black           = {"gui": "#262626", "cterm": "0"}
+    let s:black           = {"gui": "#121212", "cterm": "0"}
     let s:subtle_black    = {"gui": "#303030", "cterm": "8"}
     let s:light_black     = {"gui": "#444444", "cterm": "8"}
     let s:lighter_black   = {"gui": "#585858", "cterm": "8"}
@@ -101,9 +101,8 @@ if &background != s:background
    execute "set background=" . s:background
 endif
 
-call s:h("Cursor",        {"bg": s:light_black, "fg": s:norm })
+call s:h("Cursor",        {"bg": s:lighter_black, "fg": s:norm })
 call s:h("Comment",       {"fg": s:bg_subtle, "cterm": s:italic, "gui": s:italic})
-hi! link pythonDocstring  Comment
 
 call s:h("Constant",      {"fg": s:norm_subtle})
 hi! link Character        Constant
@@ -208,7 +207,7 @@ call s:h("htmlH6",        {"bg": s:bg, "fg": s:norm})
 
 " Syntastic
 call s:h("SyntasticWarningSign",    {"fg": s:yellow})
-call s:h("SyntasticWarning",        {"bg": s:yellow, "fg": s:black, "gui": s:bold, "cterm": s:bold})
+call s:h("SyntasticWarning",        {"bg": s:yellow, "fg": s:black, "gui": s:bold, "cterm": s:bold })
 call s:h("SyntasticErrorSign",      {"fg": s:red})
 call s:h("SyntasticError",          {"bg": s:red, "fg": s:white, "gui": s:bold, "cterm": s:bold})
 
@@ -255,6 +254,4 @@ call s:h("markdownOrderedListMarker", { "fg": s:fg })
 call s:h("mkdLink", { "fg": s:fg, "gui": s:bold, "cterm": s:bold })
 call s:h("markdownLinkDelimiter", { "fg": s:fg })
 call s:h("mkdURL", { "fg": s:norm_subtle, "gui": s:italic, "cterm": s:italic })
-
-hi Normal guibg=NONE ctermbg=NONE
 
