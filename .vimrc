@@ -21,11 +21,11 @@ if has('gui_running')
     set guioptions -=L
     set guioptions -=b
     set guioptions -=u
-    set guifont=SFMono-Medium:h15
+    set guifont=CascadiaCode-Regular:h15
     set guicursor=i-n-v-c:block-Cursor
+    set macligatures
+    set guiligatures=!\"#$%&()*+-./:<=>?@[]^_{\|~
 endif
-
-" Do not highlight search results
 
 " ALE options
 set signcolumn=number
