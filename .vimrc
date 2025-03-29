@@ -1,3 +1,6 @@
+" Disable POSIX compatibility
+set nocompatible
+
 " Basic editor functionality
 set number
 set tabstop=4
@@ -6,8 +9,9 @@ set expandtab
 set softtabstop=4
 set shiftwidth=4
 filetype indent on
-set cursorline
 set laststatus=1
+set shortmess+=I
+set nohlsearch
 
 " GUI Options
 if has('gui_running') 
@@ -17,12 +21,11 @@ if has('gui_running')
     set guioptions -=L
     set guioptions -=b
     set guioptions -=u
-    set guifont=InputMono-Regular:h13
+    set guifont=SFMono-Medium:h15
     set guicursor=i-n-v-c:block-Cursor
 endif
 
 " Do not highlight search results
-set nohlsearch
 
 " ALE options
 set signcolumn=number
@@ -38,17 +41,27 @@ nnoremap <leader>gr <cmd>ALEFindReferences<CR>
 nnoremap <leader>ca <cmd>ALECodeAction<CR>
 
 let g:ale_pattern_options = {
-    \ '\.py$': {'ale_linters': ['pyright'], 'ale_fixers': ['black'], 'filetype': 'py'},
-    \ '\.h$': {'ale_linters': ['clangd', 'clangtidy'], 'ale_fixers': ['clang-format'], 'filetype': 'cpp'},
-    \ '\.cpp$': {'ale_linters': ['clangd', 'clangtidy'], 'ale_fixers': ['clang-format'], 'filetype': 'cpp'},
+    \ '\.py$': {
+    \       'ale_linters': ['pyright'], 
+    \       'ale_fixers': ['black'], 
+    \       'filetype': 'py'
+    \ },
+    \ '\.h$': {
+    \       'ale_linters': ['clangd', 'clangtidy'], 
+    \       'ale_fixers': ['clang-format'], 
+    \       'filetype': 'cpp'
+    \ },
+    \ '\.cpp$': {
+    \       'ale_linters': ['clangd', 'clangtidy'], 
+    \       'ale_fixers': ['clang-format'], 
+    \       'filetype': 'cpp'
+    \ },
 \}
 
 " C++
 autocmd BufRead,BufNewFile *.h set filetype=cpp
 let g:ale_cpp_cc_options = '-std=c++17 -Wall -Wextra -Weffc++ -Wsign-conversion'
-let g:ale_c_build_dir_names = ['.', 'build', 'bin']
 let g:ale_cpp_build_dir_names = ['.', 'build', 'bin']
-let g:ale_c_parse_compile_commands = 1
 let g:ale_cpp_parse_compile_commands = 1
 let g:ale_cpp_clang_use_compile_commands_json = 1
 let g:ale_cpp_clangd_use_compile_commands_json = 1

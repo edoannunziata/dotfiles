@@ -24,6 +24,8 @@ if has('gui_running') || &t_Co >= 256
     let s:green           = {"gui": "#22863A", "cterm": "29" }
     let s:red             = {"gui": "#B31D28", "cterm": "124"}
     let s:blue            = {"gui": "#005CC5", "cterm": "26" }
+    let s:light_sky       = {'gui': "#87AFF7", "cterm": "110"}
+    let s:dark_sky        = {'gui': "#8787AF", "cterm": "103"}
 else
     " Shades of gray
     let s:black           = {"gui": "#121212", "cterm": "0"}
@@ -42,6 +44,8 @@ else
     let s:green           = {"gui": "#22863A", "cterm": "10"}
     let s:red             = {"gui": "#B31D28", "cterm": "9"}
     let s:blue            = {"gui": "#005CC5", "cterm": "12"}
+    let s:light_sky       = {'gui': "#87AFF7", "cterm": "110"}
+    let s:dark_sky        = {'gui': "#8787AF", "cterm": "103"}
 endif
 
 
@@ -53,7 +57,7 @@ if &background == "dark"
   let s:bg_subtle       = s:lighter_black
   let s:bg_very_subtle  = s:subtle_black
   let s:norm            = s:lighter_gray
-  let s:norm_subtle     = s:medium_gray
+  let s:norm_subtle     = s:light_sky
   let s:cursorlinenr    = s:white
 else
   let s:fg              = s:black
@@ -61,7 +65,7 @@ else
   let s:bg_subtle       = s:light_gray
   let s:bg_very_subtle  = s:lightest_gray
   let s:norm            = s:light_black
-  let s:norm_subtle     = s:medium_gray
+  let s:norm_subtle     = s:dark_sky
   let s:cursorlinenr    = s:black
 endif
 
