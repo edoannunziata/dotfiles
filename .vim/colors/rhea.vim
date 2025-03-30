@@ -98,13 +98,18 @@ if &background == 'dark'
     let s:bg_very_subtle  = s:t_subtle_black
     let s:bg_subtle       = s:t_lighter_black 
     
-    if s:col != 'fb8'
+    let s:fg              = s:t_white
+    let s:norm            = s:t_lighter_gray
+
+    if s:col == 'fb256'
         let s:light       = s:t_lighter_black
+        let s:visual_bg   = s:t_subtle_black
+        let s:visual_fg   = s:norm
     else
         let s:light       = s:t_light_gray
+        let s:visual_bg   = s:t_lighter_gray
+        let s:visual_fg   = s:t_black
     endif
-    let s:norm            = s:t_lighter_gray
-    let s:fg              = s:t_white
 
     let s:cyan            = s:t_light_cyan
     let s:yellow          = s:t_light_yellow
@@ -120,6 +125,19 @@ else
     let s:bg_very_subtle  = s:t_lightest_gray
     let s:bg_subtle       = s:t_light_gray
 
+    let s:fg              = s:t_black
+    let s:norm            = s:t_light_black
+
+    if s:col == 'fb256'
+        let s:light       = s:t_light_gray
+        let s:visual_bg   = s:t_lightest_gray
+        let s:visual_fg   = s:norm
+    else
+        let s:light       = s:t_light_black
+        let s:visual_bg   = s:t_light_black
+        let s:visual_fg   = s:t_white
+    endif
+
     let s:cyan            = s:t_dark_cyan
     let s:yellow          = s:t_dark_yellow
     let s:purple          = s:t_dark_purple
@@ -127,27 +145,19 @@ else
     let s:red             = s:t_dark_red
     let s:blue            = s:t_dark_blue
 
-    if s:col != 'fb8'
-        let s:light       = s:t_light_gray
-    else
-        let s:light       = s:t_light_black
-    endif
-    let s:norm            = s:t_light_black
-    let s:fg              = s:t_black
-
     execute "hi Terminal guibg=" s:palette.gray_7.rgb  
     execute "hi Terminal guifg=" s:palette.gray_3.rgb  
 endif
 
 " Can we use bold?
-if ((get(g:, 'rhea_bold', 1)) || &t_Co >= 16 || has('gui_running'))
+if ((get(g:, 'rhea_bold', 1)) || &t_Co >= 256 || has('gui_running'))
     let s:bold = "BOLD"
 else
     let s:bold = "NONE"
 endif
 
 " Can we use italic?
-if ((get(g:, 'rhea_italic', 1)) || &t_Co >= 16 || has('gui_running'))
+if ((get(g:, 'rhea_italic', 0)) || &t_Co >= 256 || has('gui_running'))
     let s:italic = "ITALIC"
 else
     let s:italic = "NONE"
@@ -228,8 +238,8 @@ call s:h("StatusLine",    {"bg": s:bg_very_subtle})
 call s:h("StatusLineNC",  {"bg": s:bg_very_subtle, "fg": s:light})
 call s:h("VertSplit",     {"bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:t_light_gray})
-call s:h("Visual",        {"fg": s:norm, "bg": s:bg_very_subtle})
-call s:h("VisualNOS",     {"bg": s:bg_subtle})
+call s:h("Visual",        {"fg": s:visual_fg, "bg": s:visual_bg})
+call s:h("VisualNOS",     {"bg": s:visual_bg})
 call s:h("WarningMsg",    {"fg": s:yellow})
 call s:h("WildMenu",      {"fg": s:bg, "bg": s:norm})
 call s:h("Folded",        {"fg": s:light})
