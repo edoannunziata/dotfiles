@@ -12,6 +12,14 @@ filetype indent on
 set laststatus=1
 set shortmess+=I
 set nohlsearch
+if version >= 703
+    set undodir=~/.vim/backup
+    set undofile
+    set undoreload=10000
+endif
+
+" Remap split management keys
+nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
 
 " GUI Options
 if has('gui_running') 
@@ -21,9 +29,11 @@ if has('gui_running')
     set guioptions -=L
     set guioptions -=b
     set guioptions -=u
-    set guifont=CascadiaCode-Regular:h15
+    set guifont=Cascadia\ Code\ 13
     set guicursor=i-n-v-c:block-Cursor
-    set macligatures
+    if system('uname') =~ 'Darwin'
+        set macligatures
+    endif
     set guiligatures=!\"#$%&()*+-./:<=>?@[]^_{\|~
 endif
 
@@ -33,6 +43,8 @@ let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '?'
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
+let g:ale_floating_preview = 1
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
 set omnifunc=ale#completion#OmniFunc
 set completeopt=menuone,noselect
 nnoremap K <cmd>ALEHover<CR>
@@ -42,7 +54,7 @@ nnoremap <leader>ca <cmd>ALECodeAction<CR>
 
 let g:ale_pattern_options = {
     \ '\.py$': {
-    \       'ale_linters': ['pyright'], 
+    \       'ale_linters': ['pylsp'], 
     \       'ale_fixers': ['black'], 
     \       'filetype': 'py'
     \ },
@@ -57,6 +69,9 @@ let g:ale_pattern_options = {
     \       'filetype': 'cpp'
     \ },
 \}
+
+" Python
+let g:ale_python_auto_virtualenv = 1
 
 " C++
 autocmd BufRead,BufNewFile *.h set filetype=cpp
@@ -79,27 +94,17 @@ if system('uname') =~ 'Darwin'
     else
         set background=light
     endif
+elseif system('uname') =~ 'Linux'
+    if system('gsettings get org.gnome.desktop.interface color-scheme') =~ '-dark'
+        set background=dark
+    else
+        set background=light
+    endif
 else
     set background=dark
 endif
 color komau
 if !has('gui_running')
     hi Normal ctermbg=None
-endif
-
-nnoremap <c-j> <c-w>j
-nnoremap <c-J> <c-w>J
-nnoremap <c-k> <c-w>k
-nnoremap <c-K> <c-w>K
-nnoremap <c-h> <c-w>h
-nnoremap <c-H> <c-w>H
-nnoremap <c-l> <c-w>l
-nnoremap <c-L> <c-w>L
-nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
-
-if version >= 703
-    set undodir=~/.vim/backup
-    set undofile
-    set undoreload=10000
 endif
 

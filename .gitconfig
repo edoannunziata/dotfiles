@@ -1,0 +1,9 @@
+[user]
+	email = annunziata.edoardo@outlook.com
+	name = Edoardo Annunziata
+[init]
+	defaultBranch = master
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false

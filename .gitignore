@@ -1,9 +1,8 @@
 *
 !.gitignore
+!.gitconfig
+!.gitmodules
 !.vimrc
-!.vim
-!.vim/colors
-!.vim/colors/*
-!.vim/after
-!.vim/after/syntax
-!.vim/after/syntax/*
+!.vim/colors/
+!.vim/after/
+!.vim/pack/
