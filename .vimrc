@@ -18,8 +18,16 @@ if version >= 703
     set undoreload=10000
 endif
 
-" Remap split management keys
-nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+" F5 tries to run the file
+function g:RunCurrentFile()
+    if &filetype =~ 'vim'
+        :source %
+    elseif &filetype =~ 'python'
+        :!python3 %
+    endif
+endfunction
+
+nnoremap <f5> :w <CR>:call g:RunCurrentFile()<CR>
 
 " GUI Options
 if has('gui_running') 
@@ -88,23 +96,5 @@ set wildmode=list:longest
 
 " Syntax coloring
 syntax on
-if system('uname') =~ 'Darwin'
-    if system('defaults read -g AppleInterfaceStyle') =~ 'Dark'
-        set background=dark
-    else
-        set background=light
-    endif
-elseif system('uname') =~ 'Linux'
-    if system('gsettings get org.gnome.desktop.interface color-scheme') =~ '-dark'
-        set background=dark
-    else
-        set background=light
-    endif
-else
-    set background=dark
-endif
-color komau
-if !has('gui_running')
-    hi Normal ctermbg=None
-endif
+color rhea
 

@@ -3,6 +3,8 @@
 !.gitconfig
 !.gitmodules
 !.vimrc
-!.vim/colors/
+!.vim
+!.vim/colors
+!.vim/colors/*
 !.vim/after/
 !.vim/pack/
