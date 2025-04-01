@@ -2,7 +2,7 @@
 #
 # Colors taken from: https://learn.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes
 #
-# color name    true color  xterm   ansi    console 
+# color name    true color  xterm   ansi    console
 # --------------------------------------------------
 dark_red        #d70000     160     1       1
 dark_green      #00af00     34      2       2
@@ -23,4 +23,4 @@ gray_3          #585858     240     8       0
 gray_4          #999999     246     7       7
 gray_5          #cccccc     252     7       7
 gray_6          #e5e5e5     254     7       7
-gray_7          #eeeeee     255     15      7
+gray_7          #ffffff     231     15      7
