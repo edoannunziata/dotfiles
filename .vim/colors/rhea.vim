@@ -76,7 +76,7 @@ let s:t_dark_red       = {'gui': s:palette.dark_red['rgb'], 'cterm': s:palette.d
 let s:t_dark_blue      = {'gui': s:palette.dark_blue['rgb'], 'cterm': s:palette.dark_blue[s:col]}
 
 if &background == 'dark'
-    let s:bg              = {'gui': s:palette.gray_0['rgb'], 'cterm': "NONE"}
+    let s:bg              = {'gui': s:t_black.gui, 'cterm': "NONE"}
     let s:bg_very_subtle  = s:t_subtle_black
     let s:bg_subtle       = s:t_lighter_black
 
@@ -100,8 +100,8 @@ if &background == 'dark'
     let s:red             = s:t_light_red
     let s:blue            = s:t_light_blue
 
-    execute "hi Terminal guibg=" s:palette.gray_0.rgb
-    execute "hi Terminal guifg=" s:palette.gray_5.rgb
+    execute "hi Terminal guibg=" s:bg.gui
+    execute "hi Terminal guifg=" s:norm.gui
 else
     let s:bg              = {'gui': s:t_white.gui, "cterm": "NONE"}
     let s:bg_very_subtle  = s:t_lightest_gray
@@ -127,8 +127,8 @@ else
     let s:red             = s:t_dark_red
     let s:blue            = s:t_dark_blue
 
-    execute "hi Terminal guibg=" s:palette.gray_7.rgb
-    execute "hi Terminal guifg=" s:palette.gray_3.rgb
+    execute "hi Terminal guibg=" s:bg.gui
+    execute "hi Terminal guifg=" s:norm.gui
 endif
 
 " Can we use bold?

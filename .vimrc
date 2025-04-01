@@ -40,7 +40,7 @@ if has('gui_running')
     set guicursor=i-n-v-c:block-Cursor
     if system('uname') =~ 'Darwin'
         set macligatures
-        set guifont=CascadiaCode-Regular:h13
+        set guifont=CascadiaCode-Regular:h15
     elseif system('uname') =~ 'Linux'
         set guiligatures=!\"#$%&()*+-./:<=>?@[]^_{\|~
         set guifont=Cascadia\ Code\ 13
