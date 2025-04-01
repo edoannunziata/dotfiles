@@ -10,29 +10,11 @@ endif
 
 let g:colors_name='rhea'
 
-" Attempts to guess the background
-function s:DetectColorMode()
-    if system('uname') =~ 'Darwin'
-        let l:command = 'defaults read -g AppleInterfaceStyle'
-        let l:dark = 'Dark'
-    elseif system('uname') =~ 'Linux'
-        let l:command = 'gsettings get org.gnome.desktop.interface color-scheme'
-        let l:dark = '-dark'
-    endif
-
-    if system(l:command) =~ l:dark
-        set background=dark
-    else
-        set background=light
-    endif
-endfunction
-call s:DetectColorMode()
-
 " Read the color palette from file
 let s:palette = {}
 for line in readfile(expand('<sfile>:p:h') . '/rheacolors.tsv')
-    if line =~ '^#' 
-        continue 
+    if line =~ '^#'
+        continue
     endif
     let [name, rgb, fb256, fb16, fb8; _] = split(line)
     let s:palette[name] = {}
@@ -96,8 +78,8 @@ let s:t_dark_blue      = {'gui': s:palette.dark_blue['rgb'], 'cterm': s:palette.
 if &background == 'dark'
     let s:bg              = {'gui': s:palette.gray_0['rgb'], 'cterm': "NONE"}
     let s:bg_very_subtle  = s:t_subtle_black
-    let s:bg_subtle       = s:t_lighter_black 
-    
+    let s:bg_subtle       = s:t_lighter_black
+
     let s:fg              = s:t_white
     let s:norm            = s:t_lighter_gray
 
@@ -145,8 +127,8 @@ else
     let s:red             = s:t_dark_red
     let s:blue            = s:t_dark_blue
 
-    execute "hi Terminal guibg=" s:palette.gray_7.rgb  
-    execute "hi Terminal guifg=" s:palette.gray_3.rgb  
+    execute "hi Terminal guibg=" s:palette.gray_7.rgb
+    execute "hi Terminal guifg=" s:palette.gray_3.rgb
 endif
 
 " Can we use bold?
