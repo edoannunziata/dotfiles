@@ -19,7 +19,7 @@ if version >= 703
 endif
 
 " F5 tries to run the file
-function g:RunCurrentFile()
+function! g:RunCurrentFile()
     if &filetype =~ 'vim'
         :source %
     elseif &filetype =~ 'python'
@@ -56,8 +56,6 @@ let g:ale_sign_warning = '?'
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
-" let g:ale_floating_preview = 1
-" let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
 set omnifunc=ale#completion#OmniFunc
 set completeopt=menuone,noselect
 nnoremap K <cmd>ALEHover<CR>
@@ -96,7 +94,7 @@ set wildmenu
 set wildmode=list:longest
 
 " Attempts to guess the background
-function DetectColorMode()
+function! DetectColorMode()
     if system('uname') =~ 'Darwin'
         let l:command = 'defaults read -g AppleInterfaceStyle'
         let l:dark = 'Dark'
@@ -116,3 +114,38 @@ endfunction
 syntax on
 call DetectColorMode()
 color rhea
+
+" Master Wq's missing name
+"
+" Contributed by Rafael Beraldo.
+"
+" One afternoon, Master Wq was meditating under a pine tree. He contemplated
+" how easily the wind moves through leaves and trunks, both moving them and
+" having its course altered by their presence. A student approached and
+" nervously stood by. Having finally mustered all the courage she could,
+" the student said:
+"
+" 'Master Wq, I am troubled by what I have seen.'
+"
+" The Master looked at her face, and she continued:
+"
+" 'I have mastered movement, I have understood macros, I am familiar
+" with the source and have not touched vimscript. I have followed your
+" every advice, ruminated on every teaching. Yet, there is something I
+" cannot understand. Nowhere in Vim have I found your name. Never has
+" anybody thanked you in the help pages. How can that be? The greatest of
+" all Vim masters, unknown to all? In a desperate last try, I ran :Wq and
+" the terminal screamed at me:
+"
+" E492: Not an editor command: Wq.
+"
+" My heart is drowned in doubt, and I am ashamed to admit that.'
+"
+" Master Wq looked away. After a few moments, he said:
+"
+" 'You think you have committed a great sin. However, the breeze still
+" follows its path, the leaves make their usual sound and the sky is
+" no greyer.'
+"
+" As the great master spoke this, with a sharp pebble he wrote in the dirt:
+command! Wq wq
