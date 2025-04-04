@@ -45,13 +45,17 @@ let g:terminal_ansi_colors = [
 \]
 
 " Determine what fallback level to use, if any
-if has('gui_running') || &t_Co >= 256
-    let s:col = 'fb256'
-elseif &t_Co >= 16
-    let s:col = 'fb16'
-else
-    let s:col = 'fb8'
-endif
+function! DetermineFallbackLevel()
+    let l:rhea_fallback =  get(g:, 'rhea_fallback', '')
+    if has('gui_running') || &t_Co >= 256 || &t_Co == '' || l:rhea_fallback == 256
+        let s:col = 'fb256'
+    elseif &t_Co >= 16 || l_rhea_fallback = 16
+        let s:col = 'fb16'
+    else
+        let s:col = 'fb8'
+    endif
+endfunction
+call DetermineFallbackLevel()
 
 " Set the actual colors, depending on background
 let s:t_black          = {'gui': s:palette.gray_0['rgb'], 'cterm': s:palette.gray_0[s:col]}

@@ -93,31 +93,12 @@ let g:ale_c_clangformat_options = '--style="{BasedOnStyle: WebKit, IndentWidth: 
 set wildmenu
 set wildmode=list:longest
 
-" Attempts to guess the background
-function! DetectColorMode()
-    if system('uname') =~ 'Darwin'
-        let l:command = 'defaults read -g AppleInterfaceStyle'
-        let l:dark = 'Dark'
-    elseif system('uname') =~ 'Linux'
-        let l:command = 'gsettings get org.gnome.desktop.interface color-scheme'
-        let l:dark = '-dark'
-    endif
-
-    if system(l:command) =~ l:dark
-        set background=dark
-    else
-        set background=light
-    endif
-endfunction
-
 " Syntax coloring
 syntax on
-call DetectColorMode()
+set background=dark
 color rhea
 
 " Master Wq's missing name
-"
-" Contributed by Rafael Beraldo.
 "
 " One afternoon, Master Wq was meditating under a pine tree. He contemplated
 " how easily the wind moves through leaves and trunks, both moving them and
