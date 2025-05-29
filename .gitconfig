@@ -10,3 +10,4 @@
 [core]
     editor = vim
     visual = vim
+	autocrlf = input
