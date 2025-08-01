@@ -64,9 +64,10 @@ nnoremap <leader>gr <cmd>ALEFindReferences<CR>
 nnoremap <leader>ca <cmd>ALECodeAction<CR>
 
 let g:ale_linters = {
-\   'python': ['pylsp', 'jedils'],
+\   'python': ['pylsp'],
 \   'c': ['clangd'],
-\   'cpp': ['clangd']
+\   'cpp': ['clangd'],
+\   'typescript': ['tsserver']
 \}
 
 let g:ale_fixers = {
@@ -78,6 +79,15 @@ let g:ale_fixers = {
 
 " Python
 let g:ale_python_auto_virtualenv = 1
+let g:ale_python_pylsp_config = {
+\   'pylsp': {
+\     'plugins': {
+\       'pycodestyle': {
+\         'maxLineLength': 120
+\       }
+\     }
+\   }
+\}
 
 " C++
 autocmd BufRead,BufNewFile *.h set filetype=cpp
