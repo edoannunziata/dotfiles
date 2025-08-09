@@ -106,7 +106,10 @@ set wildmode=list:longest
 " Syntax coloring
 syntax on
 set background=dark
-color rhea
+let g:nord_italic = 1
+let g:nord_uniform_diff_background = 1
+let g:nord_italic_comments = 1
+color nord
 
 " Master Wq's missing name
 "
