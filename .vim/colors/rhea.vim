@@ -1,6 +1,4 @@
 " Rhea color theme for Vim.
-"
-"
 
 hi clear
 
@@ -10,19 +8,29 @@ endif
 
 let g:colors_name='rhea'
 
-" Read the color palette from file
-let s:palette = {}
-for line in readfile(expand('<sfile>:p:h') . '/rheacolors.tsv')
-    if line =~ '^#'
-        continue
-    endif
-    let [name, rgb, fb256, fb16, fb8; _] = split(line)
-    let s:palette[name] = {}
-    let s:palette[name]['rgb'] = rgb
-    let s:palette[name]['fb256'] = fb256
-    let s:palette[name]['fb16'] = fb16
-    let s:palette[name]['fb8'] = fb8
-endfor
+" Set the color palette
+let s:palette = {
+\   'dark_red':     {'rgb': '#d70000', 'fb256': '160', 'fb16':  '1', 'fb8': '1'},
+\   'dark_green':   {'rgb': '#00af00', 'fb256':  '34', 'fb16':  '2', 'fb8': '2'},
+\   'dark_yellow':  {'rgb': '#af8700', 'fb256': '136', 'fb16':  '3', 'fb8': '3'},
+\   'dark_blue':    {'rgb': '#005fd7', 'fb256':  '26', 'fb16':  '4', 'fb8': '4'},
+\   'dark_purple':  {'rgb': '#8700af', 'fb256':  '91', 'fb16':  '5', 'fb8': '5'},
+\   'dark_cyan':    {'rgb': '#5fafd7', 'fb256':  '74', 'fb16':  '6', 'fb8': '6'},
+\   'light_red':    {'rgb': '#d75f5f', 'fb256': '167', 'fb16':  '9', 'fb8': '1'},
+\   'light_green':  {'rgb': '#00d700', 'fb256':  '40', 'fb16': '10', 'fb8': '2'},
+\   'light_yellow': {'rgb': '#ffffaf', 'fb256': '229', 'fb16': '11', 'fb8': '3'},
+\   'light_blue':   {'rgb': '#5f87ff', 'fb256':  '69', 'fb16': '12', 'fb8': '4'},
+\   'light_purple': {'rgb': '#af0087', 'fb256': '126', 'fb16': '13', 'fb8': '5'},
+\   'light_cyan':   {'rgb': '#5fd7d7', 'fb256':  '80', 'fb16': '14', 'fb8': '6'},
+\   'gray_0':       {'rgb': '#121212', 'fb256': '233', 'fb16':  '0', 'fb8': '0'},
+\   'gray_1':       {'rgb': '#303030', 'fb256': '236', 'fb16':  '8', 'fb8': '0'},
+\   'gray_2':       {'rgb': '#444444', 'fb256': '238', 'fb16':  '8', 'fb8': '0'},
+\   'gray_3':       {'rgb': '#585858', 'fb256': '240', 'fb16':  '8', 'fb8': '0'},
+\   'gray_4':       {'rgb': '#999999', 'fb256': '246', 'fb16':  '7', 'fb8': '7'},
+\   'gray_5':       {'rgb': '#cccccc', 'fb256': '252', 'fb16':  '7', 'fb8': '7'},
+\   'gray_6':       {'rgb': '#e5e5e5', 'fb256': '254', 'fb16':  '7', 'fb8': '7'},
+\   'gray_7':       {'rgb': '#ffffff', 'fb256': '231', 'fb16': '15', 'fb8': '7'}
+\}
 
 " Set ANSI colors
 let g:terminal_ansi_colors = [
@@ -217,7 +225,7 @@ call s:h("IncSearch",     {"bg": s:cyan, "fg": s:t_subtle_black})
 call s:h("Search",        {"bg": s:norm, "fg": s:bg, "cterm": s:bold, "gui": s:bold})
 call s:h("MoreMsg",       {"fg": s:light, "cterm": s:bold, "gui": s:bold})
 hi! link ModeMsg MoreMsg
-call s:h("LineNr",        {"fg": s:light})
+call s:h("LineNr",        {"fg": s:bg_very_subtle})
 call s:h("CursorLineNr",  {"fg": s:fg, "bg": s:bg_very_subtle, "cterm": s:bold, "gui": s:bold})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
