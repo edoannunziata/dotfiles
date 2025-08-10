@@ -10,25 +10,25 @@ let g:colors_name='rhea'
 
 " Set the color palette
 let s:palette = {
-\   'dark_red':     {'rgb': '#d70000', 'fb256': '160', 'fb16':  '1', 'fb8': '1'},
-\   'dark_green':   {'rgb': '#00af00', 'fb256':  '34', 'fb16':  '2', 'fb8': '2'},
-\   'dark_yellow':  {'rgb': '#af8700', 'fb256': '136', 'fb16':  '3', 'fb8': '3'},
-\   'dark_blue':    {'rgb': '#005fd7', 'fb256':  '26', 'fb16':  '4', 'fb8': '4'},
-\   'dark_purple':  {'rgb': '#8700af', 'fb256':  '91', 'fb16':  '5', 'fb8': '5'},
-\   'dark_cyan':    {'rgb': '#5fafd7', 'fb256':  '74', 'fb16':  '6', 'fb8': '6'},
-\   'light_red':    {'rgb': '#d75f5f', 'fb256': '167', 'fb16':  '9', 'fb8': '1'},
-\   'light_green':  {'rgb': '#00d700', 'fb256':  '40', 'fb16': '10', 'fb8': '2'},
-\   'light_yellow': {'rgb': '#ffffaf', 'fb256': '229', 'fb16': '11', 'fb8': '3'},
-\   'light_blue':   {'rgb': '#5f87ff', 'fb256':  '69', 'fb16': '12', 'fb8': '4'},
-\   'light_purple': {'rgb': '#af0087', 'fb256': '126', 'fb16': '13', 'fb8': '5'},
-\   'light_cyan':   {'rgb': '#5fd7d7', 'fb256':  '80', 'fb16': '14', 'fb8': '6'},
-\   'gray_0':       {'rgb': '#121212', 'fb256': '233', 'fb16':  '0', 'fb8': '0'},
+\   'dark_red':     {'rgb': '#cc6666', 'fb256': '167', 'fb16':  '1', 'fb8': '1'},
+\   'dark_green':   {'rgb': '#b5bd68', 'fb256': '143', 'fb16':  '2', 'fb8': '2'},
+\   'dark_yellow':  {'rgb': '#f0c674', 'fb256': '222', 'fb16':  '3', 'fb8': '3'},
+\   'dark_blue':    {'rgb': '#81a2be', 'fb256': '110', 'fb16':  '4', 'fb8': '4'},
+\   'dark_purple':  {'rgb': '#b294bb', 'fb256': '139', 'fb16':  '5', 'fb8': '5'},
+\   'dark_cyan':    {'rgb': '#8abeb7', 'fb256': '109', 'fb16':  '6', 'fb8': '6'},
+\   'light_red':    {'rgb': '#cc6666', 'fb256': '167', 'fb16':  '9', 'fb8': '1'},
+\   'light_green':  {'rgb': '#b5bd68', 'fb256': '143', 'fb16': '10', 'fb8': '2'},
+\   'light_yellow': {'rgb': '#f0c674', 'fb256': '222', 'fb16': '11', 'fb8': '3'},
+\   'light_blue':   {'rgb': '#81a2be', 'fb256': '110', 'fb16': '12', 'fb8': '4'},
+\   'light_purple': {'rgb': '#b294bb', 'fb256': '139', 'fb16': '13', 'fb8': '5'},
+\   'light_cyan':   {'rgb': '#8abeb7', 'fb256': '109', 'fb16': '14', 'fb8': '6'},
+\   'gray_0':       {'rgb': '#1d1f21', 'fb256': '234', 'fb16':  '0', 'fb8': '0'},
 \   'gray_1':       {'rgb': '#303030', 'fb256': '236', 'fb16':  '8', 'fb8': '0'},
 \   'gray_2':       {'rgb': '#444444', 'fb256': '238', 'fb16':  '8', 'fb8': '0'},
 \   'gray_3':       {'rgb': '#585858', 'fb256': '240', 'fb16':  '8', 'fb8': '0'},
-\   'gray_4':       {'rgb': '#999999', 'fb256': '246', 'fb16':  '7', 'fb8': '7'},
-\   'gray_5':       {'rgb': '#cccccc', 'fb256': '252', 'fb16':  '7', 'fb8': '7'},
-\   'gray_6':       {'rgb': '#e5e5e5', 'fb256': '254', 'fb16':  '7', 'fb8': '7'},
+\   'gray_4':       {'rgb': '#969896', 'fb256': '246', 'fb16':  '8', 'fb8': '7'},
+\   'gray_5':       {'rgb': '#c5c8c6', 'fb256': '251', 'fb16':  '7', 'fb8': '7'},
+\   'gray_6':       {'rgb': '#e4e4e4', 'fb256': '254', 'fb16':  '7', 'fb8': '7'},
 \   'gray_7':       {'rgb': '#ffffff', 'fb256': '231', 'fb16': '15', 'fb8': '7'}
 \}
 
@@ -55,9 +55,15 @@ let g:terminal_ansi_colors = [
 " Determine what fallback level to use, if any
 function! DetermineFallbackLevel()
     let l:rhea_fallback =  get(g:, 'rhea_fallback', '')
-    if has('gui_running') || &t_Co >= 256 || &t_Co == '' || l:rhea_fallback == 256
+    if l:rhea_fallback == 256
         let s:col = 'fb256'
-    elseif &t_Co >= 16 || l_rhea_fallback = 16
+    elseif l:rhea_fallback == 16
+        let s:col = 'fb16'
+    elseif l:rhea_fallback == 8
+        let s:col = 'fb8'
+    elseif has('gui_running') || &t_Co >= 256
+        let s:col = 'fb256'
+    elseif &t_Co >= 16
         let s:col = 'fb16'
     else
         let s:col = 'fb8'
@@ -105,7 +111,7 @@ if &background == 'dark'
         let s:visual_fg   = s:t_black
     endif
 
-    let s:cyan            = s:t_light_cyan
+    let s:accent          = s:t_light_cyan
     let s:yellow          = s:t_light_yellow
     let s:purple          = s:t_light_purple
     let s:green           = s:t_light_green
@@ -132,7 +138,7 @@ else
         let s:visual_fg   = s:t_white
     endif
 
-    let s:cyan            = s:t_dark_cyan
+    let s:accent          = s:t_dark_blue
     let s:yellow          = s:t_dark_yellow
     let s:purple          = s:t_dark_purple
     let s:green           = s:t_dark_green
@@ -176,7 +182,7 @@ call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
 call s:h("Cursor",        {"bg": s:light, "fg": s:norm })
 call s:h("Comment",       {"fg": s:light, "cterm": s:italic, "gui": s:italic})
 
-call s:h("Constant",      {"fg": s:cyan})
+call s:h("Constant",      {"fg": s:accent})
 hi! link Character        Constant
 hi! link Number           Constant
 hi! link Boolean          Constant
@@ -221,7 +227,7 @@ call s:h("SpecialKey",    {"fg": s:green})
 call s:h("NonText",       {"fg": s:light})
 call s:h("Directory",     {"fg": s:norm, "gui": s:bold, "cterm": s:bold})
 call s:h("ErrorMsg",      {"fg": s:red})
-call s:h("IncSearch",     {"bg": s:cyan, "fg": s:t_subtle_black})
+call s:h("IncSearch",     {"bg": s:accent, "fg": s:t_subtle_black})
 call s:h("Search",        {"bg": s:norm, "fg": s:bg, "cterm": s:bold, "gui": s:bold})
 call s:h("MoreMsg",       {"fg": s:light, "cterm": s:bold, "gui": s:bold})
 hi! link ModeMsg MoreMsg
@@ -257,11 +263,11 @@ else
 endif
 
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:bg_very_subtle})
-call s:h("PmenuSel",      {"fg": s:t_subtle_black, "bg": s:cyan})
+call s:h("PmenuSel",      {"fg": s:t_subtle_black, "bg": s:accent})
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("TabLine",       {"fg": s:norm, "bg": s:bg_very_subtle})
-call s:h("TabLineSel",    {"fg": s:t_subtle_black, "bg": s:cyan, "gui": s:bold, "cterm": s:bold})
+call s:h("TabLineSel",    {"fg": s:t_subtle_black, "bg": s:accent, "gui": s:bold, "cterm": s:bold})
 call s:h("TabLineFill",   {"fg": s:norm, "bg": s:bg_very_subtle})
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
 call s:h("CursorLine",    {"bg": s:bg_very_subtle})
@@ -325,4 +331,4 @@ call s:h("mkdListItem", { "fg": s:fg })
 call s:h("markdownOrderedListMarker", { "fg": s:fg })
 call s:h("mkdLink", { "fg": s:fg, "gui": s:bold, "cterm": s:bold })
 call s:h("markdownLinkDelimiter", { "fg": s:fg })
-call s:h("mkdURL", { "fg": s:cyan, "gui": s:italic, "cterm": s:italic })
+call s:h("mkdURL", { "fg": s:accent, "gui": s:italic, "cterm": s:italic })
