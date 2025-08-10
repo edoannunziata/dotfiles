@@ -225,7 +225,7 @@ call s:h("IncSearch",     {"bg": s:cyan, "fg": s:t_subtle_black})
 call s:h("Search",        {"bg": s:norm, "fg": s:bg, "cterm": s:bold, "gui": s:bold})
 call s:h("MoreMsg",       {"fg": s:light, "cterm": s:bold, "gui": s:bold})
 hi! link ModeMsg MoreMsg
-call s:h("LineNr",        {"fg": s:bg_very_subtle})
+call s:h("LineNr",        {"fg": s:light})
 call s:h("CursorLineNr",  {"fg": s:fg, "bg": s:bg_very_subtle, "cterm": s:bold, "gui": s:bold})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
