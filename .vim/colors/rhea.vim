@@ -10,26 +10,26 @@ let g:colors_name='rhea'
 
 " Set the color palette
 let s:palette = {
-\   'dark_red':     {'rgb': '#cc6666', 'fb256': '167', 'fb16':  '1', 'fb8': '1'},
-\   'dark_green':   {'rgb': '#b5bd68', 'fb256': '143', 'fb16':  '2', 'fb8': '2'},
-\   'dark_yellow':  {'rgb': '#f0c674', 'fb256': '222', 'fb16':  '3', 'fb8': '3'},
-\   'dark_blue':    {'rgb': '#81a2be', 'fb256': '110', 'fb16':  '4', 'fb8': '4'},
-\   'dark_purple':  {'rgb': '#b294bb', 'fb256': '139', 'fb16':  '5', 'fb8': '5'},
-\   'dark_cyan':    {'rgb': '#8abeb7', 'fb256': '109', 'fb16':  '6', 'fb8': '6'},
-\   'light_red':    {'rgb': '#cc6666', 'fb256': '167', 'fb16':  '9', 'fb8': '1'},
-\   'light_green':  {'rgb': '#b5bd68', 'fb256': '143', 'fb16': '10', 'fb8': '2'},
-\   'light_yellow': {'rgb': '#f0c674', 'fb256': '222', 'fb16': '11', 'fb8': '3'},
-\   'light_blue':   {'rgb': '#81a2be', 'fb256': '110', 'fb16': '12', 'fb8': '4'},
-\   'light_purple': {'rgb': '#b294bb', 'fb256': '139', 'fb16': '13', 'fb8': '5'},
-\   'light_cyan':   {'rgb': '#8abeb7', 'fb256': '109', 'fb16': '14', 'fb8': '6'},
-\   'gray_0':       {'rgb': '#1d1f21', 'fb256': '234', 'fb16':  '0', 'fb8': '0'},
-\   'gray_1':       {'rgb': '#303030', 'fb256': '236', 'fb16':  '8', 'fb8': '0'},
-\   'gray_2':       {'rgb': '#444444', 'fb256': '238', 'fb16':  '8', 'fb8': '0'},
-\   'gray_3':       {'rgb': '#585858', 'fb256': '240', 'fb16':  '8', 'fb8': '0'},
-\   'gray_4':       {'rgb': '#969896', 'fb256': '246', 'fb16':  '8', 'fb8': '7'},
-\   'gray_5':       {'rgb': '#c5c8c6', 'fb256': '251', 'fb16':  '7', 'fb8': '7'},
-\   'gray_6':       {'rgb': '#e4e4e4', 'fb256': '254', 'fb16':  '7', 'fb8': '7'},
-\   'gray_7':       {'rgb': '#ffffff', 'fb256': '231', 'fb16': '15', 'fb8': '7'}
+\   'dark_red':     {'rgb': '#cc6666', 'fbAnsi':   '1', 'fb256': '167', 'fb16':  '1', 'fb8': '1', 'fb1': ''},
+\   'dark_green':   {'rgb': '#b5bd68', 'fbAnsi':   '2', 'fb256': '143', 'fb16':  '2', 'fb8': '2', 'fb1': ''},
+\   'dark_yellow':  {'rgb': '#f0c674', 'fbAnsi':   '3', 'fb256': '222', 'fb16':  '3', 'fb8': '3', 'fb1': ''},
+\   'dark_blue':    {'rgb': '#81a2be', 'fbAnsi':   '4', 'fb256': '110', 'fb16':  '4', 'fb8': '4', 'fb1': ''},
+\   'dark_purple':  {'rgb': '#b294bb', 'fbAnsi':   '5', 'fb256': '139', 'fb16':  '5', 'fb8': '5', 'fb1': ''},
+\   'dark_cyan':    {'rgb': '#8abeb7', 'fbAnsi':   '6', 'fb256': '109', 'fb16':  '6', 'fb8': '6', 'fb1': ''},
+\   'light_red':    {'rgb': '#cc6666', 'fbAnsi':   '9', 'fb256': '167', 'fb16':  '9', 'fb8': '1', 'fb1': ''},
+\   'light_green':  {'rgb': '#b5bd68', 'fbAnsi':  '10', 'fb256': '143', 'fb16': '10', 'fb8': '2', 'fb1': ''},
+\   'light_yellow': {'rgb': '#f0c674', 'fbAnsi':  '11', 'fb256': '222', 'fb16': '11', 'fb8': '3', 'fb1': ''},
+\   'light_blue':   {'rgb': '#81a2be', 'fbAnsi':  '12', 'fb256': '110', 'fb16': '12', 'fb8': '4', 'fb1': ''},
+\   'light_purple': {'rgb': '#b294bb', 'fbAnsi':  '13', 'fb256': '139', 'fb16': '13', 'fb8': '5', 'fb1': ''},
+\   'light_cyan':   {'rgb': '#8abeb7', 'fbAnsi':  '14', 'fb256': '109', 'fb16': '14', 'fb8': '6', 'fb1': ''},
+\   'gray_0':       {'rgb': '#1d1f21', 'fbAnsi': '234', 'fb256': '234', 'fb16':  '0', 'fb8': '0', 'fb1': ''},
+\   'gray_1':       {'rgb': '#303030', 'fbAnsi': '236', 'fb256': '236', 'fb16':  '8', 'fb8': '0', 'fb1': ''},
+\   'gray_2':       {'rgb': '#444444', 'fbAnsi': '238', 'fb256': '238', 'fb16':  '8', 'fb8': '0', 'fb1': ''},
+\   'gray_3':       {'rgb': '#585858', 'fbAnsi': '240', 'fb256': '240', 'fb16':  '8', 'fb8': '0', 'fb1': ''},
+\   'gray_4':       {'rgb': '#969896', 'fbAnsi': '246', 'fb256': '246', 'fb16':  '8', 'fb8': '7', 'fb1': ''},
+\   'gray_5':       {'rgb': '#c5c8c6', 'fbAnsi': '251', 'fb256': '251', 'fb16':  '7', 'fb8': '7', 'fb1': ''},
+\   'gray_6':       {'rgb': '#e4e4e4', 'fbAnsi': '254', 'fb256': '254', 'fb16':  '7', 'fb8': '7', 'fb1': ''},
+\   'gray_7':       {'rgb': '#ffffff', 'fbAnsi': '231', 'fb256': '231', 'fb16': '15', 'fb8': '7', 'fb1': ''}
 \}
 
 " Set ANSI colors
@@ -54,19 +54,26 @@ let g:terminal_ansi_colors = [
 
 " Determine what fallback level to use, if any
 function! DetermineFallbackLevel()
-    let l:rhea_fallback =  get(g:, 'rhea_fallback', '')
-    if l:rhea_fallback == 256
-        let s:col = 'fb256'
-    elseif l:rhea_fallback == 16
-        let s:col = 'fb16'
-    elseif l:rhea_fallback == 8
-        let s:col = 'fb8'
+    let l:f = get(g:, 'rhea_fallback', '')
+    let l:a = get(g:, 'rhea_use_ansi', '')
+
+    " If an explicit fallback level is set, use that.
+    if l:f == 256 || l:f == 16 || l:f == 8 || l:f == 1
+        let s:col = 'fb' .. l:f
+    " Otherwise, try to guess using &t_Co
     elseif has('gui_running') || &t_Co >= 256
         let s:col = 'fb256'
     elseif &t_Co >= 16
         let s:col = 'fb16'
-    else
+    elseif &t_Co >= 8
         let s:col = 'fb8'
+    else
+        let s:col = 'fb0'
+    endif
+
+    " If rhea_use_ansi is set, don't approximate tone colors
+    if s:col == 'fb256' && l:a
+        let s:col = 'fbAnsi'
     endif
 endfunction
 call DetermineFallbackLevel()
@@ -93,6 +100,45 @@ let s:t_dark_green     = {'gui': s:palette.dark_green['rgb'], 'cterm': s:palette
 let s:t_dark_red       = {'gui': s:palette.dark_red['rgb'], 'cterm': s:palette.dark_red[s:col]}
 let s:t_dark_blue      = {'gui': s:palette.dark_blue['rgb'], 'cterm': s:palette.dark_blue[s:col]}
 
+" Set the accent color depending on user choice
+function! SetAccentColor()
+    let l:c = get(g:, 'rhea_accent_color')
+    if &background == 'dark'
+        if l:c =~? 'red'
+            let s:accent = s:t_light_red
+        elseif l:c =~? 'green'
+            let s:accent = s:t_light_green
+        elseif l:c =~? 'yellow'
+            let s:accent = s:t_light_yellow
+        elseif l:c =~? 'blue'
+            let s:accent = s:t_light_blue
+        elseif l:c =~? 'purple'
+            let s:accent = s:t_light_purple
+        elseif l:c =~? 'none' || l:c =~? 'white'
+            let s:accent = s:t_lighter_gray
+        else
+            let s:accent = s:t_light_cyan
+        endif
+    else
+        if l:c =~? 'red'
+            let s:accent = s:t_dark_red
+        elseif l:c =~? 'green'
+            let s:accent = s:t_dark_green
+        elseif l:c =~? 'yellow'
+            let s:accent = s:t_dark_yellow
+        elseif l:c =~? 'blue'
+            let s:accent = s:t_dark_blue
+        elseif l:c =~? 'purple'
+            let s:accent = s:t_dark_purple
+        elseif l:c =~? 'none' || l:c =~? 'white'
+            let s:accent = s:t_light_black
+        else
+            let s:accent = s:t_dark_cyan
+        endif
+    endif
+endfunction
+call SetAccentColor()
+
 if &background == 'dark'
     let s:bg              = {'gui': s:t_black.gui, 'cterm': "NONE"}
     let s:bg_very_subtle  = s:t_subtle_black
@@ -101,7 +147,7 @@ if &background == 'dark'
     let s:fg              = s:t_white
     let s:norm            = s:t_lighter_gray
 
-    if s:col == 'fb256'
+    if s:col == 'fb256' || s:col == 'fbAnsi'
         let s:light       = s:t_lighter_black
         let s:visual_bg   = s:t_subtle_black
         let s:visual_fg   = s:norm
@@ -111,7 +157,6 @@ if &background == 'dark'
         let s:visual_fg   = s:t_black
     endif
 
-    let s:accent          = s:t_light_cyan
     let s:yellow          = s:t_light_yellow
     let s:purple          = s:t_light_purple
     let s:green           = s:t_light_green
@@ -128,7 +173,7 @@ else
     let s:fg              = s:t_black
     let s:norm            = s:t_light_black
 
-    if s:col == 'fb256'
+    if s:col == 'fb256' || s:col == 'fbAnsi'
         let s:light       = s:t_light_gray
         let s:visual_bg   = s:t_lightest_gray
         let s:visual_fg   = s:norm
@@ -138,7 +183,6 @@ else
         let s:visual_fg   = s:t_white
     endif
 
-    let s:accent          = s:t_dark_blue
     let s:yellow          = s:t_dark_yellow
     let s:purple          = s:t_dark_purple
     let s:green           = s:t_dark_green
