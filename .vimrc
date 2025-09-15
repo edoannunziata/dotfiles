@@ -105,9 +105,8 @@ set wildmode=list:longest
 
 " Syntax coloring
 syntax on
+color default
 set background=dark
-let g:rhea_use_ansi = 1
-color rhea
 
 " Master Wq's missing name
 "
