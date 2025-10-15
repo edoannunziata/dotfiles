@@ -10,22 +10,22 @@ let g:colors_name='rhea'
 
 " Set the color palette
 let s:palette = {
-\   'dark_black':   {'rgb': '#2e3440', 'term':  '0'},
-\   'dark_red':     {'rgb': '#bf616a', 'term':  '1'},
-\   'dark_green':   {'rgb': '#a3be8c', 'term':  '2'},
-\   'dark_yellow':  {'rgb': '#ebcb8b', 'term':  '3'},
-\   'dark_blue':    {'rgb': '#81a1c1', 'term':  '4'},
-\   'dark_purple':  {'rgb': '#b48ead', 'term':  '5'},
-\   'dark_cyan':    {'rgb': '#88c0d0', 'term':  '6'},
-\   'dark_white':   {'rgb': '#d8dee9', 'term':  '7'},
-\   'light_black':  {'rgb': '#4c566a', 'term':  '8'},
-\   'light_red':    {'rgb': '#bf616a', 'term':  '9'},
-\   'light_green':  {'rgb': '#a3be8c', 'term': '10'},
-\   'light_yellow': {'rgb': '#ebcb8b', 'term': '11'},
-\   'light_blue':   {'rgb': '#81a1c1', 'term': '12'},
-\   'light_purple': {'rgb': '#b48ead', 'term': '13'},
-\   'light_cyan':   {'rgb': '#8fbcbb', 'term': '14'},
-\   'light_white':  {'rgb': '#eceff4', 'term': '15'}
+\   'dark_black':   {'rgb': '#1d1f21', 'term':  '0'},
+\   'dark_red':     {'rgb': '#a54242', 'term':  '1'},
+\   'dark_green':   {'rgb': '#8c9440', 'term':  '2'},
+\   'dark_yellow':  {'rgb': '#de935f', 'term':  '3'},
+\   'dark_blue':    {'rgb': '#5f819d', 'term':  '4'},
+\   'dark_purple':  {'rgb': '#85678f', 'term':  '5'},
+\   'dark_cyan':    {'rgb': '#5e8d87', 'term':  '6'},
+\   'dark_white':   {'rgb': '#c5c8c6', 'term':  '7'},
+\   'light_black':  {'rgb': '#575b61', 'term':  '8'},
+\   'light_red':    {'rgb': '#cc6666', 'term':  '9'},
+\   'light_green':  {'rgb': '#b5bd68', 'term': '10'},
+\   'light_yellow': {'rgb': '#f0c674', 'term': '11'},
+\   'light_blue':   {'rgb': '#81a2be', 'term': '12'},
+\   'light_purple': {'rgb': '#b294bb', 'term': '13'},
+\   'light_cyan':   {'rgb': '#8abeb7', 'term': '14'},
+\   'light_white':  {'rgb': '#f5f8f6', 'term': '15'}
 \}
 
 " Set ANSI colors
