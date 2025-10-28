@@ -2,6 +2,7 @@
 set nocompatible
 
 " Basic editor functionality
+set nowrap
 set number
 set tabstop=4
 set autoindent
