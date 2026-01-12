@@ -3,6 +3,7 @@
 !.gitconfig
 !.gitmodules
 !.vimrc
+!.tmux.conf
 !.vim
 !.vim/colors
 !.vim/colors/*
