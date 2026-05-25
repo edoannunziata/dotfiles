@@ -9,3 +9,5 @@
 !.vim/colors/*
 !.vim/after/
 !.vim/pack/
+!.scripts
+!.scripts/*
