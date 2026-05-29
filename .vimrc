@@ -107,7 +107,7 @@ set wildmode=list:longest
 
 " Syntax coloring
 syntax on
-set background=dark
+set background=light
 color rhea
 
 " Master Wq's missing name
