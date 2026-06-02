@@ -23,8 +23,8 @@ endif
 function! g:RunCurrentFile()
     if &filetype =~ 'vim'
         :source %
-    elseif &filetype =~ 'python'
-        :!python3 %
+    elseif (&filetype =~ 'javascript') || (&filetype =~ 'typescript')
+        :!bun run %
     endif
 endfunction
 
@@ -57,6 +57,8 @@ let g:ale_sign_warning = '?'
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
+" ALE redirects fixer input from a temp file; Prettier 3 only reads piped stdin.
+let g:ale_javascript_prettier_executable = expand('~/.local/bin/prettier-ale')
 set omnifunc=ale#completion#OmniFunc
 set completeopt=menuone,noselect
 nnoremap K <cmd>ALEHover<CR>
@@ -65,7 +67,6 @@ nnoremap <leader>gr <cmd>ALEFindReferences<CR>
 nnoremap <leader>ca <cmd>ALECodeAction<CR>
 
 let g:ale_linters = {
-\   'python': ['pylsp'],
 \   'c': ['clangd'],
 \   'cpp': ['clangd'],
 \   'typescript': ['tsserver']
@@ -73,22 +74,9 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black'],
 \   'c': ['clang-format'],
 \   'cpp': ['clang-format'],
 \   'typescript': ['prettier']
-\}
-
-" Python
-let g:ale_python_auto_virtualenv = 1
-let g:ale_python_pylsp_config = {
-\   'pylsp': {
-\     'plugins': {
-\       'pycodestyle': {
-\         'maxLineLength': 120
-\       }
-\     }
-\   }
 \}
 
 " C++
