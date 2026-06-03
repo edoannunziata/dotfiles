@@ -57,8 +57,6 @@ let g:ale_sign_warning = '?'
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
-" ALE redirects fixer input from a temp file; Prettier 3 only reads piped stdin.
-let g:ale_javascript_prettier_executable = expand('~/.local/bin/prettier-ale')
 set omnifunc=ale#completion#OmniFunc
 set completeopt=menuone,noselect
 nnoremap K <cmd>ALEHover<CR>
@@ -69,6 +67,7 @@ nnoremap <leader>ca <cmd>ALECodeAction<CR>
 let g:ale_linters = {
 \   'c': ['clangd'],
 \   'cpp': ['clangd'],
+\   'javascript': ['tsserver'],
 \   'typescript': ['tsserver']
 \}
 
@@ -76,6 +75,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'c': ['clang-format'],
 \   'cpp': ['clang-format'],
+\   'javascript': ['prettier'],
 \   'typescript': ['prettier']
 \}
 
