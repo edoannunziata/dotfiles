@@ -305,6 +305,10 @@ hi link GitGutterDelete         LineNr
 hi link GitGutterChange         LineNr
 hi link GitGutterChangeDelete   LineNr
 
+" Javascript, Typescript
+hi! link javascriptBraces Delimiter
+hi! link typescriptBraces Delimiter
+
 " Markdown
 call s:h("markdownCode",                { "fg": s:light })
 call s:h("markdownLinkReference",       { "fg": s:light })
