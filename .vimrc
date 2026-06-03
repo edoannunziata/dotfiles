@@ -4,50 +4,50 @@ set nocompatible
 " Basic editor functionality
 set nowrap
 set number
-set tabstop=4
+set tabstop=2
 set autoindent
 set expandtab
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 filetype indent on
 set laststatus=1
 set shortmess+=I
 set nohlsearch
 if version >= 703
-    set undodir=~/.vim/backup
-    set undofile
-    set undoreload=10000
+  set undodir=~/.vim/backup
+  set undofile
+  set undoreload=10000
 endif
 
 " F5 tries to run the file
 function! g:RunCurrentFile()
-    if &filetype =~ 'vim'
-        :source %
-    elseif (&filetype =~ 'javascript') || (&filetype =~ 'typescript')
-        :!bun run %
-    endif
+  if &filetype =~ 'vim'
+    :source %
+  elseif (&filetype =~ 'javascript') || (&filetype =~ 'typescript')
+    :!bun run %
+  endif
 endfunction
 
 nnoremap <f5> :w <CR>:call g:RunCurrentFile()<CR>
 
 " GUI Options
 if has('gui_running')
-    set guioptions -=m
-    set guioptions -=T
-    set guioptions -=r
-    set guioptions -=L
-    set guioptions -=b
-    set guioptions -=u
-    set guicursor=i-n-v-c:block-Cursor
-    if system('uname') =~ 'Darwin'
-        set macligatures
-        set guifont=CascadiaCode-Regular:h15
-    elseif system('uname') =~ 'Linux'
-        set guiligatures=!\"#$%&()*+-./:<=>?@[]^_{\|~
-        set guifont=Cascadia\ Code\ 13
-    else
-        set guifont=Cascadia\ Code\ 13
-    endif
+  set guioptions -=m
+  set guioptions -=T
+  set guioptions -=r
+  set guioptions -=L
+  set guioptions -=b
+  set guioptions -=u
+  set guicursor=i-n-v-c:block-Cursor
+  if system('uname') =~ 'Darwin'
+    set macligatures
+    set guifont=CascadiaCode-Regular:h15
+  elseif system('uname') =~ 'Linux'
+    set guiligatures=!\"#$%&()*+-./:<=>?@[]^_{\|~
+    set guifont=Cascadia\ Code\ 13
+  else
+    set guifont=Cascadia\ Code\ 13
+  endif
 endif
 
 " ALE options
@@ -65,18 +65,18 @@ nnoremap <leader>gr <cmd>ALEFindReferences<CR>
 nnoremap <leader>ca <cmd>ALECodeAction<CR>
 
 let g:ale_linters = {
-\   'c': ['clangd'],
-\   'cpp': ['clangd'],
-\   'javascript': ['tsserver'],
-\   'typescript': ['tsserver']
+\ 'c': ['clangd'],
+\ 'cpp': ['clangd'],
+\ 'javascript': ['tsserver'],
+\ 'typescript': ['tsserver']
 \}
 
+let s:common_fixers = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'c': ['clang-format'],
-\   'cpp': ['clang-format'],
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier']
+\ 'c': ['clang-format'] + s:common_fixers,
+\ 'cpp': ['clang-format'] + s:common_fixers,
+\ 'javascript': ['prettier'] + s:common_fixers,
+\ 'typescript': ['prettier'] + s:common_fixers
 \}
 
 " C++
