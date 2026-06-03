@@ -3,54 +3,54 @@
 hi clear
 
 if exists("syntax on")
-    syntax reset
+  syntax reset
 endif
 
 let g:colors_name="rhea"
 
 " Set the color palette
 let s:palette = {
-\   "dark_black":   {"rgb": "#1d1f21", "term":  "0", "term_8": "0"},
-\   "dark_red":     {"rgb": "#a54242", "term":  "1", "term_8": "1"},
-\   "dark_green":   {"rgb": "#8c9440", "term":  "2", "term_8": "2"},
-\   "dark_yellow":  {"rgb": "#de935f", "term":  "3", "term_8": "3"},
-\   "dark_blue":    {"rgb": "#5f819d", "term":  "4", "term_8": "4"},
-\   "dark_purple":  {"rgb": "#85678f", "term":  "5", "term_8": "5"},
-\   "dark_cyan":    {"rgb": "#5e8d87", "term":  "6", "term_8": "6"},
-\   "dark_white":   {"rgb": "#c5c8c6", "term":  "7", "term_8": "7"},
-\   "light_black":  {"rgb": "#575b61", "term":  "8", "term_8": "0"},
-\   "light_red":    {"rgb": "#cc6666", "term":  "9", "term_8": "1"},
-\   "light_green":  {"rgb": "#b5bd68", "term": "10", "term_8": "2"},
-\   "light_yellow": {"rgb": "#f0c674", "term": "11", "term_8": "3"},
-\   "light_blue":   {"rgb": "#81a2be", "term": "12", "term_8": "4"},
-\   "light_purple": {"rgb": "#b294bb", "term": "13", "term_8": "5"},
-\   "light_cyan":   {"rgb": "#8abeb7", "term": "14", "term_8": "6"},
-\   "light_white":  {"rgb": "#f5f8f6", "term": "15", "term_8": "7"}
+\ "dark_black":   {"rgb": "#1d1f21", "term":  "0", "term_8": "0"},
+\ "dark_red":     {"rgb": "#a54242", "term":  "1", "term_8": "1"},
+\ "dark_green":   {"rgb": "#8c9440", "term":  "2", "term_8": "2"},
+\ "dark_yellow":  {"rgb": "#de935f", "term":  "3", "term_8": "3"},
+\ "dark_blue":    {"rgb": "#5f819d", "term":  "4", "term_8": "4"},
+\ "dark_purple":  {"rgb": "#85678f", "term":  "5", "term_8": "5"},
+\ "dark_cyan":    {"rgb": "#5e8d87", "term":  "6", "term_8": "6"},
+\ "dark_white":   {"rgb": "#c5c8c6", "term":  "7", "term_8": "7"},
+\ "light_black":  {"rgb": "#575b61", "term":  "8", "term_8": "0"},
+\ "light_red":    {"rgb": "#cc6666", "term":  "9", "term_8": "1"},
+\ "light_green":  {"rgb": "#b5bd68", "term": "10", "term_8": "2"},
+\ "light_yellow": {"rgb": "#f0c674", "term": "11", "term_8": "3"},
+\ "light_blue":   {"rgb": "#81a2be", "term": "12", "term_8": "4"},
+\ "light_purple": {"rgb": "#b294bb", "term": "13", "term_8": "5"},
+\ "light_cyan":   {"rgb": "#8abeb7", "term": "14", "term_8": "6"},
+\ "light_white":  {"rgb": "#f5f8f6", "term": "15", "term_8": "7"}
 \}
 
 let s:limited_cterm = !has("gui_running") && &t_Co < 16
 
 function! s:color(name) abort
-    if s:limited_cterm
-        return {"gui": s:palette[a:name].rgb, "cterm": s:palette[a:name].term_8}
-    else
-        return {"gui": s:palette[a:name].rgb, "cterm": s:palette[a:name].term}
-    endif
+  if s:limited_cterm
+    return {"gui": s:palette[a:name].rgb, "cterm": s:palette[a:name].term_8}
+  else
+    return {"gui": s:palette[a:name].rgb, "cterm": s:palette[a:name].term}
+  endif
 endfunction
 
 function! s:color_role(color, ctermfg, ctermbg) abort
-    let l:color = copy(a:color)
-    let l:color.ctermfg = a:ctermfg
-    let l:color.ctermbg = a:ctermbg
-    return l:color
+  let l:color = copy(a:color)
+  let l:color.ctermfg = a:ctermfg
+  let l:color.ctermbg = a:ctermbg
+  return l:color
 endfunction
 
 function! s:ctermfg(color) abort
-    return has_key(a:color, "ctermfg") ? a:color.ctermfg : a:color.cterm
+  return has_key(a:color, "ctermfg") ? a:color.ctermfg : a:color.cterm
 endfunction
 
 function! s:ctermbg(color) abort
-    return has_key(a:color, "ctermbg") ? a:color.ctermbg : a:color.cterm
+  return has_key(a:color, "ctermbg") ? a:color.ctermbg : a:color.cterm
 endfunction
 
 " Set ANSI colors
@@ -93,69 +93,69 @@ let s:t_dark_blue      = s:color("dark_blue")
 let s:t_dark_white     = s:color("dark_white")
 
 if &background == "dark"
-    let s:bg              = s:color_role(s:t_dark_black, s:t_dark_black.cterm, "NONE")
-    let s:bg_subtle       = s:limited_cterm ? s:color_role(s:t_light_black, s:t_dark_white.cterm, s:t_dark_black.cterm) : s:t_light_black
-    let s:fg              = s:t_light_white
-    let s:norm            = s:t_dark_white
-    let s:light           = s:limited_cterm ? s:color_role(s:t_light_black, s:t_dark_white.cterm, s:t_dark_black.cterm) : s:t_light_black
+  let s:bg              = s:color_role(s:t_dark_black, s:t_dark_black.cterm, "NONE")
+  let s:bg_subtle       = s:limited_cterm ? s:color_role(s:t_light_black, s:t_dark_white.cterm, s:t_dark_black.cterm) : s:t_light_black
+  let s:fg              = s:t_light_white
+  let s:norm            = s:t_dark_white
+  let s:light           = s:limited_cterm ? s:color_role(s:t_light_black, s:t_dark_white.cterm, s:t_dark_black.cterm) : s:t_light_black
 
-    let s:visual_bg       = s:t_dark_white
-    let s:visual_fg       = s:t_dark_black
+  let s:visual_bg       = s:t_dark_white
+  let s:visual_fg       = s:t_dark_black
 
-    let s:yellow          = s:t_light_yellow
-    let s:purple          = s:t_light_purple
-    let s:green           = s:t_light_green
-    let s:red             = s:t_light_red
-    let s:blue            = s:t_light_blue
+  let s:yellow          = s:t_light_yellow
+  let s:purple          = s:t_light_purple
+  let s:green           = s:t_light_green
+  let s:red             = s:t_light_red
+  let s:blue            = s:t_light_blue
 
-    let s:accent          = s:t_light_cyan
+  let s:accent          = s:t_light_cyan
 
-    execute "hi Terminal guibg=" s:bg.gui
-    execute "hi Terminal guifg=" s:norm.gui
+  execute "hi Terminal guibg=" s:bg.gui
+  execute "hi Terminal guifg=" s:norm.gui
 else
-    let s:bg              = s:color_role(s:t_light_white, s:t_light_white.cterm, "NONE")
-    let s:bg_subtle       = s:limited_cterm ? s:color_role(s:t_dark_white, s:t_dark_black.cterm, s:t_dark_white.cterm) : s:t_dark_white
-    let s:fg              = s:t_dark_black
-    let s:norm            = s:t_light_black
-    let s:light           = s:limited_cterm ? s:color_role(s:t_dark_white, s:t_dark_black.cterm, s:t_dark_white.cterm) : s:t_dark_white
+  let s:bg              = s:color_role(s:t_light_white, s:t_light_white.cterm, "NONE")
+  let s:bg_subtle       = s:limited_cterm ? s:color_role(s:t_dark_white, s:t_dark_black.cterm, s:t_dark_white.cterm) : s:t_dark_white
+  let s:fg              = s:t_dark_black
+  let s:norm            = s:t_light_black
+  let s:light           = s:limited_cterm ? s:color_role(s:t_dark_white, s:t_dark_black.cterm, s:t_dark_white.cterm) : s:t_dark_white
 
-    let s:visual_bg       = s:t_light_black
-    let s:visual_fg       = s:t_light_white
+  let s:visual_bg       = s:t_light_black
+  let s:visual_fg       = s:t_light_white
 
-    let s:yellow          = s:t_dark_yellow
-    let s:purple          = s:t_dark_purple
-    let s:green           = s:t_dark_green
-    let s:red             = s:t_dark_red
-    let s:blue            = s:t_dark_blue
+  let s:yellow          = s:t_dark_yellow
+  let s:purple          = s:t_dark_purple
+  let s:green           = s:t_dark_green
+  let s:red             = s:t_dark_red
+  let s:blue            = s:t_dark_blue
 
-    let s:accent          = s:t_dark_cyan
+  let s:accent          = s:t_dark_cyan
 
-    execute "hi Terminal guibg=" s:bg.gui
-    execute "hi Terminal guifg=" s:norm.gui
+  execute "hi Terminal guibg=" s:bg.gui
+  execute "hi Terminal guifg=" s:norm.gui
 endif
 
 " Can we use bold?
 let s:rhea_bold_var = get(g:, "rhea_bold", "auto")
 if (s:rhea_bold_var =~ "auto") && (&t_Co >= 8 || has("gui_running"))
-    let s:bold = "BOLD"
+  let s:bold = "BOLD"
 elseif s:rhea_bold_var =~ "auto"
-    let s:bold = "NONE"
+  let s:bold = "NONE"
 elseif s:rhea_bold_var == 1
-    let s:bold = "BOLD"
+  let s:bold = "BOLD"
 else
-    let s:bold = "NONE"
+  let s:bold = "NONE"
 endif
 
 " Can we use italic?
 let s:rhea_italic_var = get(g:, "rhea_italic", "auto")
 if (s:rhea_italic_var =~ "auto") && (&t_Co >= 256 || has("gui_running"))
-    let s:italic = "ITALIC"
+  let s:italic = "ITALIC"
 elseif s:rhea_italic_var =~ "auto"
-    let s:italic = "NONE"
+  let s:italic = "NONE"
 elseif s:rhea_italic_var == 1
-    let s:italic = "ITALIC"
+  let s:italic = "ITALIC"
 else
-    let s:italic = "NONE"
+  let s:italic = "NONE"
 endif
 
 " Syntax highlighting generator
