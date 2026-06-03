@@ -8,6 +8,9 @@
 !.vim/colors
 !.vim/colors/*
 !.vim/after/
+!.vim/after/*
+!.vim/after/syntax/
+!.vim/after/syntax/typescript.vim
 !.vim/pack/
 !.scripts
 !.scripts/*
