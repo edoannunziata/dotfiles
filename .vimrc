@@ -19,6 +19,12 @@ if version >= 703
   set undoreload=10000
 endif
 
+" Netrw options
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
 " F5 tries to run the file
 function! g:RunCurrentFile()
   if &filetype =~ 'vim'
