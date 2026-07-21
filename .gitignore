@@ -12,3 +12,16 @@
 !.vim/after/syntax/
 !.vim/after/syntax/typescript.vim
 !.vim/pack/
+!.config/
+!.config/foot
+!.config/foot/**
+!.config/sway
+!.config/sway/**
+!.config/swaylock
+!.config/swaylock/**
+!.config/dunst
+!.config/dunst/**
+!.config/rofi
+!.config/rofi/**
+!.config/waybar
+!.config/waybar/**
