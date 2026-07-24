@@ -1,43 +1,33 @@
-screenshots
-clock
-indicator
+color=000000
+font=IBM Plex Sans
 
-timestr=%I:%M %p
-datestr=%a %b %d
+inside-color=000000
+inside-clear-color=000000
+inside-caps-lock-color=000000
+inside-ver-color=000000
+inside-wrong-color=000000
 
-effect-blur=12x6
-effect-vignette=0.5:0
-fade-in=0.25
+text-color=000000
+text-clear-color=000000
+text-caps-lock-color=ffffff
+text-ver-color=000000
+text-wrong-color=000000
 
-indicator-radius=112
-indicator-thickness=2
+line-color=000000
+line-clear-color=000000
+line-caps-lock-color=000000
+line-ver-color=000000
+line-wrong-color=000000
 
-inside-color=0000002a
-inside-clear-color=0000002a
-inside-caps-lock-color=0000002a
-inside-ver-color=0000002a
-inside-wrong-color=0000002a
+ring-color=ffffff
+ring-clear-color=ffffff
+ring-caps-lock-color=ffffff
+ring-ver-color=ffffff
+ring-wrong-color=ffffff
+separator-color=ffffff
 
-key-hl-color=ffffff
-bs-hl-color=ffbaba
-caps-lock-bs-hl-color=0000002a
-caps-lock-key-hl-color=ffffb8
+key-hl-color=000000
+bs-hl-color=000000
+caps-lock-bs-hl-color=000000
+caps-lock-key-hl-color=000000
 
-line-color=00000000
-line-clear-color=00000000
-line-caps-lock-color=00000000
-line-ver-color=00000000
-line-wrong-color=00000000
-
-ring-color=ffffff2a
-ring-clear-color=ffffb8
-ring-caps-lock-color=ffffb82a
-ring-ver-color=ffffff2a
-ring-wrong-color=ffbaba
-separator-color=00000000
-
-text-color=ffffff
-text-clear-color=ffffb800
-text-caps-lock-color=ffffff6a
-text-ver-color=00000000
-text-wrong-color=ffbaba00
