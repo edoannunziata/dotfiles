@@ -20,10 +20,10 @@ line-ver-color=000000
 line-wrong-color=000000
 
 ring-color=ffffff
-ring-clear-color=ffffff
+ring-clear-color=000000
 ring-caps-lock-color=ffffff
-ring-ver-color=ffffff
-ring-wrong-color=ffffff
+ring-ver-color=24dfc4
+ring-wrong-color=feabf2
 separator-color=ffffff
 
 key-hl-color=000000
