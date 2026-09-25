@@ -5,7 +5,7 @@ configuration {
     display-window:             "";
 }
 * {
-    font:   "IBM Plex Sans Medium 11";
+    font:   "Atkinson Hyperlegible Next 14";
 
     bg0:     rgba(0,0,0,0.93);
     bg1:     rgba(255,255,255,1);
@@ -24,7 +24,7 @@ configuration {
 
 window {
     location:   center;
-    width:      480;
+    width:      800;
     background-color:   @bg0;
     border-radius: 5px;
     padding: 5px;
