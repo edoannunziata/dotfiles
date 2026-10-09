@@ -108,7 +108,7 @@ if &background == "dark"
   let s:red             = s:t_light_red
   let s:blue            = s:t_light_blue
 
-  let s:accent          = s:t_light_cyan
+  let s:accent          = s:t_light_blue
 
   execute "hi Terminal guibg=" s:bg.gui
   execute "hi Terminal guifg=" s:norm.gui
@@ -128,7 +128,7 @@ else
   let s:red             = s:t_dark_red
   let s:blue            = s:t_dark_blue
 
-  let s:accent          = s:t_dark_cyan
+  let s:accent          = s:t_dark_blue
 
   execute "hi Terminal guibg=" s:bg.gui
   execute "hi Terminal guifg=" s:norm.gui

@@ -25,11 +25,11 @@ button {
 }
 
 #workspaces button.focused {
-    color: #24dfc4;
+    color: #5dc5f8;
 }
 
 #workspaces button.urgent {
-    color: #feabf2;
+    color: #e9e836;
 }
 
 #clock,
@@ -66,22 +66,22 @@ button {
 }
 
 #battery.charging, #battery.plugged {
-    color: #24dfc4;
+    color: #5dc5f8;
 }
 
 #battery.critical:not(.charging) {
-    color: #feabf2;
+    color: #e9e836;
 }
 
 #network.disconnected {
-    color: #feabf2;
+    color: #e9e836;
 }
 
 #pulseaudio.muted {
-    color: #feabf2;
+    color: #e9e836;
 }
 
 #temperature.critical {
-    color: #feabf2;
+    color: #e9e836;
 }
 
