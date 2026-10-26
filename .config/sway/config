@@ -68,5 +68,8 @@ bindsym $mod+Ctrl+l resize grow width 20px
 bindsym $mod+Ctrl+j resize shrink height 20px
 bindsym $mod+Ctrl+k resize grow height 20px
 
+# Lock after 30 minutes of inactivity.
+set $lock_timeout 1800
+
 # Config paths
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
